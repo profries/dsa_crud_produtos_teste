@@ -13,6 +13,14 @@ function geradorId() {
     return ++idGerado
 }
 
+function init() {
+    listaProdutos = [
+        {id:1, nome:"Produto 1", preco:10},
+        {id:2, nome:"Produto 2", preco:20},
+        {id:3, nome:"Produto 3", preco:30},
+    ];
+}
+
 function inserir(produto) {
     produto.id = geradorId()
     listaProdutos.push(produto)
@@ -40,18 +48,22 @@ function atualizar(id, produtoAlterado) {
             if(produtoAlterado.preco) {
                 produto.preco = produtoAlterado.preco
             }
+            return produto;
         }
     }
+    throw "ID nao encontrado";
 }
 
 function deletar(id) {
     for(let i in listaProdutos) {
         if(listaProdutos[i].id == id) {
             listaProdutos.splice(i, 1);
+            return;
         }
     }    
+    throw "ID nao encontrado";
 }
 
 module.exports = {
-    inserir, listar, buscarPorId, atualizar, deletar
+    init, inserir, listar, buscarPorId, atualizar, deletar
 }

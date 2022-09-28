@@ -7,7 +7,7 @@
     "print": "echo \"Hello World\" && exit",
     "start": "node main.js",
     "test": "jest",
-    "testecov": "jest --coverage"
+    "testcov": "jest --coverage"
   },
   "keywords": [
     "CRUD",
